@@ -42,7 +42,7 @@ public class Repeater2WayPlugin extends JavaPlugin {
 		}
 		// bStats
 		System.setProperty("bstats.relocatecheck","false");
-		metrics.set(new Metrics(this, 17231));
+		metrics.set(new Metrics(this, 17260));
 	}
 
 	@Override
