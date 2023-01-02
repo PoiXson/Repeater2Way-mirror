@@ -1,0 +1,7 @@
+Repeater2Way
+
+
+2023-01-01 - 0.1.1
+==================
+* initial release
+* known bug - sometimes glitches and doesn't detect redstone power while resetting
