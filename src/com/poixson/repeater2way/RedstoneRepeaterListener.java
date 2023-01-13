@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map.Entry;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -37,6 +38,8 @@ public class RedstoneRepeaterListener extends BukkitRunnable implements Listener
 
 
 	public void start() {
+		Bukkit.getPluginManager()
+			.registerEvents(this, this.plugin);
 		this.runTaskTimer(this.plugin, 20, 3);
 	}
 	public void unload() {
