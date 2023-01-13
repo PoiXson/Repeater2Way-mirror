@@ -1,21 +1,17 @@
 package com.poixson.repeater2way;
 
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.logging.Logger;
 
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.event.HandlerList;
 
 import com.poixson.commonmc.tools.plugin.xJavaPlugin;
 
 
 public class Repeater2WayPlugin extends xJavaPlugin {
-	public static final String LOG_PREFIX  = "[Repeater2Way] ";
-	public static final String CHAT_PREFIX = ChatColor.AQUA + LOG_PREFIX + ChatColor.WHITE;
-	public static final Logger log = Logger.getLogger("Minecraft");
-	public static final int SPIGOT_PLUGIN_ID = 107123;
-	public static final int BSTATS_PLUGIN_ID = 17260;
+	protected static final String LOG_PREFIX  = "[Repeater2Way] ";
+	protected static final int SPIGOT_PLUGIN_ID = 107123;
+	protected static final int BSTATS_PLUGIN_ID = 17260;
 
 	protected static final AtomicReference<Repeater2WayPlugin> instance = new AtomicReference<Repeater2WayPlugin>(null);
 
@@ -54,6 +50,8 @@ public class Repeater2WayPlugin extends xJavaPlugin {
 			if (listener != null)
 				listener.unload();
 		}
+		if (!instance.compareAndSet(this, null))
+			(new RuntimeException("Disable wrong instance of plugin?")).printStackTrace();
 	}
 
 
