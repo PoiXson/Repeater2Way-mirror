@@ -9,6 +9,8 @@ import org.bukkit.ChatColor;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.poixson.tools.AppProps;
+
 
 public class Repeater2WayPlugin extends JavaPlugin {
 	public static final String LOG_PREFIX  = "[Repeater2Way] ";
@@ -17,12 +19,18 @@ public class Repeater2WayPlugin extends JavaPlugin {
 
 	protected static final AtomicReference<Repeater2WayPlugin> instance = new AtomicReference<Repeater2WayPlugin>(null);
 	protected static final AtomicReference<Metrics>            metrics  = new AtomicReference<Metrics>(null);
+	protected final AppProps props;
 
 	protected final AtomicReference<RedstoneRepeaterListener> repeaterListener = new AtomicReference<RedstoneRepeaterListener>(null);
 
 
 
 	public Repeater2WayPlugin() {
+		try {
+			this.props = AppProps.LoadFromClassRef(Repeater2WayPlugin.class);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 
