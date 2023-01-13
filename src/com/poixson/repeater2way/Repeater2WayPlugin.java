@@ -16,6 +16,7 @@ public class Repeater2WayPlugin extends JavaPlugin {
 	public static final String LOG_PREFIX  = "[Repeater2Way] ";
 	public static final String CHAT_PREFIX = ChatColor.AQUA + LOG_PREFIX + ChatColor.WHITE;
 	public static final Logger log = Logger.getLogger("Minecraft");
+	public static final int BSTATS_PLUGIN_ID = 17260;
 
 	protected static final AtomicReference<Repeater2WayPlugin> instance = new AtomicReference<Repeater2WayPlugin>(null);
 	protected static final AtomicReference<Metrics>            metrics  = new AtomicReference<Metrics>(null);
@@ -50,7 +51,7 @@ public class Repeater2WayPlugin extends JavaPlugin {
 		}
 		// bStats
 		System.setProperty("bstats.relocatecheck","false");
-		metrics.set(new Metrics(this, 17260));
+		metrics.set(new Metrics(this, BSTATS_PLUGIN_ID));
 	}
 
 	@Override
