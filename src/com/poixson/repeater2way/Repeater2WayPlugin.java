@@ -9,7 +9,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.poixson.commonbukkit.pxnCommonPlugin;
+import com.poixson.commonmc.pxnCommonPlugin;
 import com.poixson.tools.AppProps;
 
 
