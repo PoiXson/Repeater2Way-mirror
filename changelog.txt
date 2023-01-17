@@ -1,4 +1,4 @@
-Repeater2Way
+Repeater2Way - 2-Way Redstone Repeaters
 
 
 2023-01-17 - 0.1.3
