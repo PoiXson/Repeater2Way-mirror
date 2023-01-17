@@ -1,6 +1,13 @@
 Repeater2Way
 
 
+2023-01-17 - 0.1.3
+==================
+* added plugin update checker - provided by pxnCommonPluginMC
+* using new xJavaPlugin to simplify boiler plate code
+* renamed pxnCommonPluginMC dependency
+
+
 2023-01-01 - 0.1.1
 ==================
 * initial release
