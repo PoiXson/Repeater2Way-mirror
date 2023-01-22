@@ -45,7 +45,7 @@ public class RedstoneRepeaterListener extends BukkitRunnable implements Listener
 	public void unload() {
 		try {
 			this.cancel();
-		} catch (Exception ignore) {}
+		} catch (IllegalStateException ignore) {}
 		// restore repeaters
 		this.queueOn.clear();
 		this.queueOff.clear();
