@@ -9,12 +9,13 @@ import com.poixson.commonmc.tools.plugin.xJavaPlugin;
 
 public class Repeater2WayPlugin extends xJavaPlugin {
 	protected static final String LOG_PREFIX  = "[Repeater2Way] ";
-	protected static final int SPIGOT_PLUGIN_ID = 107123;
-	protected static final int BSTATS_PLUGIN_ID = 17260;
 
 	protected static final AtomicReference<Repeater2WayPlugin> instance = new AtomicReference<Repeater2WayPlugin>(null);
 
 	protected final AtomicReference<RedstoneRepeaterListener> repeaterListener = new AtomicReference<RedstoneRepeaterListener>(null);
+
+	@Override public int getSpigotPluginID() { return 107123; }
+	@Override public int getBStatsID() {       return 17260;  }
 
 
 
@@ -50,21 +51,6 @@ public class Repeater2WayPlugin extends xJavaPlugin {
 		}
 		if (!instance.compareAndSet(this, null))
 			(new RuntimeException("Disable wrong instance of plugin?")).printStackTrace();
-	}
-
-
-
-	// -------------------------------------------------------------------------------
-
-
-
-	@Override
-	protected int getSpigotPluginID() {
-		return SPIGOT_PLUGIN_ID;
-	}
-	@Override
-	protected int getBStatsID() {
-		return BSTATS_PLUGIN_ID;
 	}
 
 
