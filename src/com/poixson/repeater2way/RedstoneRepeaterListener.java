@@ -14,6 +14,7 @@ import org.bukkit.block.BlockFace;
 import org.bukkit.block.data.type.Repeater;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
+import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockRedstoneEvent;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -43,6 +44,7 @@ public class RedstoneRepeaterListener extends BukkitRunnable implements Listener
 		this.runTaskTimer(this.plugin, 20, 3);
 	}
 	public void unload() {
+		HandlerList.unregisterAll(this);
 		try {
 			this.cancel();
 		} catch (IllegalStateException ignore) {}
