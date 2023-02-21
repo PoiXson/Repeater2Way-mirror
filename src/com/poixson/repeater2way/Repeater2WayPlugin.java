@@ -8,7 +8,7 @@ import com.poixson.commonmc.tools.plugin.xJavaPlugin;
 
 
 public class Repeater2WayPlugin extends xJavaPlugin {
-	protected static final String LOG_PREFIX  = "[Repeater2Way] ";
+	public static final String LOG_PREFIX  = "[Repeater2Way] ";
 
 	protected static final AtomicReference<Repeater2WayPlugin> instance = new AtomicReference<Repeater2WayPlugin>(null);
 
