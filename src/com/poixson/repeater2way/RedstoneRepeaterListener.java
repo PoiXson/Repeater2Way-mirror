@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map.Entry;
+import java.util.concurrent.atomic.AtomicReference;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -15,14 +16,15 @@ import org.bukkit.block.data.type.Repeater;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.HandlerList;
-import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockRedstoneEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import com.poixson.commonmc.tools.plugin.xListener;
 
-public class RedstoneRepeaterListener extends BukkitRunnable implements Listener {
 
-	protected final Repeater2WayPlugin plugin;
+public class RedstoneRepeaterListener extends xListener<Repeater2WayPlugin> implements Runnable {
+
+	protected final BukkitRunnable run;
 
 	protected final LinkedList<RepeaterDAO> queueOn  = new LinkedList<RepeaterDAO>();
 	protected final LinkedList<RepeaterDAO> queueOff = new LinkedList<RepeaterDAO>();
@@ -32,8 +34,19 @@ public class RedstoneRepeaterListener extends BukkitRunnable implements Listener
 
 
 	public RedstoneRepeaterListener(final Repeater2WayPlugin plugin) {
-		super();
-		this.plugin = plugin;
+		super(plugin);
+		this.run = (new BukkitRunnable() {
+			private final AtomicReference<RedstoneRepeaterListener> listener =
+					new AtomicReference<RedstoneRepeaterListener>(null);
+			public BukkitRunnable init(final RedstoneRepeaterListener listener) {
+				this.listener.set(listener);
+				return this;
+			}
+			@Override
+			public void run() {
+				this.listener.get().run();
+			}
+		}).init(this);
 	}
 
 
@@ -41,12 +54,12 @@ public class RedstoneRepeaterListener extends BukkitRunnable implements Listener
 	public void start() {
 		Bukkit.getPluginManager()
 			.registerEvents(this, this.plugin);
-		this.runTaskTimer(this.plugin, 20, 3);
+		this.run.runTaskTimer(this.plugin, 20, 3);
 	}
 	public void unload() {
 		HandlerList.unregisterAll(this);
 		try {
-			this.cancel();
+			this.run.cancel();
 		} catch (IllegalStateException ignore) {}
 		// restore repeaters
 		this.queueOn.clear();
