@@ -8,12 +8,11 @@ import com.poixson.commonmc.tools.plugin.xJavaPlugin;
 
 
 public class Repeater2WayPlugin extends xJavaPlugin {
+	@Override public int getSpigotPluginID() { return 107123; }
+	@Override public int getBStatsID() {       return 17260;  }
 	public static final String LOG_PREFIX  = "[Repeater2Way] ";
 
 	protected final AtomicReference<RedstoneRepeaterListener> repeaterListener = new AtomicReference<RedstoneRepeaterListener>(null);
-
-	@Override public int getSpigotPluginID() { return 107123; }
-	@Override public int getBStatsID() {       return 17260;  }
 
 
 
