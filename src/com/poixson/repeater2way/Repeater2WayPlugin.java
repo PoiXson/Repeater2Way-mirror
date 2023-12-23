@@ -4,7 +4,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 import org.bukkit.event.HandlerList;
 
-import com.poixson.pluginlib.tools.plugin.xJavaPlugin;
+import com.poixson.tools.xJavaPlugin;
 
 
 public class Repeater2WayPlugin extends xJavaPlugin {
