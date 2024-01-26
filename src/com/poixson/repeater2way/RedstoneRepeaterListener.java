@@ -22,7 +22,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import com.poixson.tools.events.xListener;
 
 
-public class RedstoneRepeaterListener extends xListener<Repeater2WayPlugin> implements Runnable {
+public class RedstoneRepeaterListener extends xListener implements Runnable {
 
 	protected final BukkitRunnable run;
 
