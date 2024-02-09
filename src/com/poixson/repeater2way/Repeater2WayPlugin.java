@@ -33,6 +33,7 @@ public class Repeater2WayPlugin extends xJavaPlugin {
 				HandlerList.unregisterAll(previous);
 			listener.start();
 		}
+		this.saveConfigs();
 	}
 
 	@Override
