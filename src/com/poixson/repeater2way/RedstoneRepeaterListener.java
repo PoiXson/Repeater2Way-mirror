@@ -8,22 +8,22 @@ import java.util.LinkedList;
 import java.util.Map.Entry;
 import java.util.concurrent.atomic.AtomicReference;
 
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.data.type.Repeater;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
-import org.bukkit.event.HandlerList;
 import org.bukkit.event.block.BlockRedstoneEvent;
+import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import com.poixson.tools.events.xListener;
 
 
-public class RedstoneRepeaterListener extends xListener implements Runnable {
+public class RedstoneRepeaterListener implements Runnable, xListener {
 
+	protected final JavaPlugin plugin;
 	protected final BukkitRunnable run;
 
 	protected final LinkedList<RepeaterDAO> queueOn  = new LinkedList<RepeaterDAO>();
@@ -33,8 +33,8 @@ public class RedstoneRepeaterListener extends xListener implements Runnable {
 
 
 
-	public RedstoneRepeaterListener(final Repeater2WayPlugin plugin) {
-		super(plugin);
+	public RedstoneRepeaterListener(final JavaPlugin plugin) {
+		this.plugin = plugin;
 		this.run = (new BukkitRunnable() {
 			private final AtomicReference<RedstoneRepeaterListener> listener =
 					new AtomicReference<RedstoneRepeaterListener>(null);
@@ -52,12 +52,11 @@ public class RedstoneRepeaterListener extends xListener implements Runnable {
 
 
 	public void start() {
-		Bukkit.getPluginManager()
-			.registerEvents(this, this.plugin);
+		xListener.super.register(this.plugin);
 		this.run.runTaskTimer(this.plugin, 20, 3);
 	}
 	public void unload() {
-		HandlerList.unregisterAll(this);
+		xListener.super.unregister();
 		try {
 			this.run.cancel();
 		} catch (IllegalStateException ignore) {}

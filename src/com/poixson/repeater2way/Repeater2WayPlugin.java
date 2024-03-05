@@ -2,8 +2,6 @@ package com.poixson.repeater2way;
 
 import java.util.concurrent.atomic.AtomicReference;
 
-import org.bukkit.event.HandlerList;
-
 import com.poixson.tools.xJavaPlugin;
 
 
@@ -29,7 +27,7 @@ public class Repeater2WayPlugin extends xJavaPlugin {
 			final RedstoneRepeaterListener listener = new RedstoneRepeaterListener(this);
 			final RedstoneRepeaterListener previous = this.repeaterListener.getAndSet(listener);
 			if (previous != null)
-				HandlerList.unregisterAll(previous);
+				previous.unload();
 			listener.start();
 		}
 		this.saveConfigs();
