@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated: Sat Mar  2 05:28:22 PM EST 2024 -->
+<!-- Generated: Thu Apr 25 01:01:21 AM EDT 2024 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -179,13 +179,6 @@
 		<repository>
 			<id>spigotmc-repo</id>
 			<url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>onarandombox</id>
-			<url>https://repo.onarandombox.com/content/groups/public/</url>
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
