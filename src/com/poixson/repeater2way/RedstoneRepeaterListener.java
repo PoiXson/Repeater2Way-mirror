@@ -1,6 +1,7 @@
 package com.poixson.repeater2way;
 
 import static com.poixson.repeater2way.RepeaterDAO.ValidateRepeater;
+import static com.poixson.utils.BukkitUtils.SafeCancel;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -57,9 +58,7 @@ public class RedstoneRepeaterListener implements Runnable, xListener {
 	}
 	public void unload() {
 		xListener.super.unregister();
-		try {
-			this.run.cancel();
-		} catch (IllegalStateException ignore) {}
+		SafeCancel(this.run);
 		// restore repeaters
 		this.queueOn.clear();
 		this.queueOff.clear();
