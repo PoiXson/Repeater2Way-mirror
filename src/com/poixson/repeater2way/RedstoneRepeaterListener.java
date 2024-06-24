@@ -19,7 +19,7 @@ import org.bukkit.event.block.BlockRedstoneEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import com.poixson.tools.events.xListener;
+import com.poixson.tools.xListener;
 
 
 public class RedstoneRepeaterListener implements Runnable, xListener {
