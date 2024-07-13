@@ -30,6 +30,9 @@ public class Repeater2WayPlugin extends xJavaPlugin {
 				previous.unload();
 			listener.start();
 		}
+		// save
+		this.setConfigChanged();
+		this.saveConfigs();
 	}
 
 	@Override
