@@ -1,7 +1,7 @@
 name: ${project.name}
 main: com.poixson.repeater2way.Repeater2WayPlugin
-version: ${project.version}
-api-version: ${bukkit-short-version}
+version: '${project.version}'
+api-version: '${bukkit-short-version}'
 depend:
   - pxnPluginLib
 authors: [ lorenzop ]
