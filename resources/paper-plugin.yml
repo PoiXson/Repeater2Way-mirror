@@ -2,8 +2,8 @@ name: ${project.name}
 main: com.poixson.repeater2way.Repeater2WayPlugin
 version: '${project.version}'
 api-version: '${bukkit-short-version}'
-depend:
+depends:
   - pxnPluginLib
-authors: [ lorenzop ]
+authors: lorenzop
 website: ${project.url}
 description: ${project.description}
