@@ -13,7 +13,7 @@ public class Repeater2WayPlugin extends xJavaPlugin {
 
 
 	public Repeater2WayPlugin() {
-		super(Repeater2WayPlugin.class);
+		super();
 	}
 
 
