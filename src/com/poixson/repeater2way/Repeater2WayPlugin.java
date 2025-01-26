@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import com.poixson.tools.xJavaPlugin;
 
 
-public class Repeater2WayPlugin extends xJavaPlugin {
+public class Repeater2WayPlugin extends xJavaPlugin<Repeater2WayPlugin> {
 	@Override public int getBStatsID() { return 17260; }
 
 	protected final AtomicReference<RedstoneRepeaterListener> repeaterListener = new AtomicReference<RedstoneRepeaterListener>(null);
